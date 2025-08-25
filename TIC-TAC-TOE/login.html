@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - TIC-TAC-TOE</title>
+    <!-- Incluye tu hoja de estilos principal -->
+    <link rel="stylesheet" href="scr/Styles/Index.css">
+    <!-- Hoja de estilos específica para formularios de autenticación -->
+    <link rel="stylesheet" href="scr/Styles/Auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <header>
+            <div class="logo">
+                <img id="logo" src="scr/favicon_io/android-chrome-192x192.png" alt="Logo TIC-TAC-TOE">
+            </div>
+            <div class="title">
+                <h1>Iniciar Sesión</h1>
+            </div>
+        </header>
+        
+        <div>
+            <form id="loginForm" class="auth-form">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                
+                <p id="message" class="error-message"></p>
+                
+                <button type="submit" class="btnJugar">Entrar</button>
+            </form>
+            
+            <p class="auth-switch">¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+        </div>
+    </div>
+    
+    <script src="scr/Js/auth.js"></script>
+</body>
+</html>

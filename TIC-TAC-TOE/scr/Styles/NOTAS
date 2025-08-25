@@ -1,0 +1,9 @@
+ <section class="instrucciones">
+      <h2>Instrucciones</h2>
+      <p>1. Haz clic en una casilla vacía para colocar tu símbolo.</p>
+      <p>2. El juego alterna entre dos jugadores: X y O.</p>
+      <p>3. El primer jugador en alinear tres símbolos gana.</p>
+      <p>4. Si todas las casillas están llenas sin ganador, el juego termina en empate.</p>
+      <p>5. Puedes reiniciar el juego en cualquier momento.</p>
+    </section>
+    // INGRESAR ESTO EN UN MODAL

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App TIC-TAC-TOE</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="scr/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="scr/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="scr/favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="scr/Styles/index.css">
+</head>
+<body>
+
+    <div class="background-container">
+        <img id="fondo" src="scr/gif/tomYjerry (2).gif" alt="Tom y Jerry de fondo">
+    </div>
+    
+    <div class="game-container">
+        <header>
+            <div class="logo">
+                <img id="logo" src="scr/favicon_io/android-chrome-192x192.png" alt="Logo TIC-TAC-TOE">
+            </div>
+            <div class="title">
+                <h1>App TIC-TAC-TOE</h1>
+            </div>
+            <button id="settingsBtn" class="settings-btn"><i class="fa-solid fa-gear"></i></button>
+        </header>
+                <p>
+                    ¡Bienvenido a la App TIC-TAC-TOE! Dos jugadores se turnan para colocar X u O en el tablero. <br>
+                    El primero que logre alinear tres símbolos en fila, columna o diagonal ¡gana la partida!
+                </p>
+                 <div>
+                    <h2 id="statustext"></h2>
+                    <div class="game-mode-buttons">
+                        <button id="btnPVP" class="btnJugar">X vs O</button>
+                        <button id="btnCPU" class="btnJugar">X vs CPU</button>
+                    </div>
+                    <div id="cpuOptions">
+                        <h3>Selecciona la dificultad</h3>
+                        <button class="btnJugar cpuBtn" data-difficulty="easy">Fácil</button>
+                        <button class="btnJugar cpuBtn" data-difficulty="medium">Intermedio</button>
+                        <button class="btnJugar cpuBtn" data-difficulty="hard">Difícil</button>
+                    </div>
+                </div>
+        <main>
+
+            <section></section>
+            <section class="game-board">  
+                <div id="cellContainer" class="board">
+                    <div cellGame="0" class="cell"></div>
+                    <div cellGame="1" class="cell"></div>
+                    <div cellGame="2" class="cell"></div>
+                    <div cellGame="3" class="cell"></div>
+                    <div cellGame="4" class="cell"></div>
+                    <div cellGame="5" class="cell"></div>
+                    <div cellGame="6" class="cell"></div>
+                    <div cellGame="7" class="cell"></div>
+                    <div cellGame="8" class="cell"></div>
+                    <div class="line vertical v1"></div>
+                    <div class="line vertical v2"></div>
+                    <div class="line horizontal h1"></div>
+                    <div class="line horizontal h2"></div>
+                </div>
+            </section>
+            <section class="game-controls">
+               
+            </section>
+            <section class="score-board">
+                <div id="scoreboardContainer">
+                    <h3>Marcador del día</h3>
+                    <ul id="winnersList">
+                        <li id="scoreX">Victorias de X: 0</li>
+                        <li id="scoreO">Victorias de O: 0</li>
+                        <li id="scoreEmpates">Empates: 0</li>
+                    </ul>
+                    <button id="resetScoreboard">Reiniciar marcador</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 TIC-TAC-TOE | Creado por Reychel</p>
+        </footer>
+    </div>
+    
+    <!-- Modal de Configuraciones -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Configuraciones</h2>
+            <div class="setting-item">
+                <label for="muteToggle">Desactivar sonido</label>
+                <input type="checkbox" id="muteToggle">
+            </div>
+            <div class="setting-item">
+                <label for="volumeSlider">Volumen</label>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de JavaScript al final del body -->
+    <script src="scr/Js/Index.js"></script>
+</body>
+</html>

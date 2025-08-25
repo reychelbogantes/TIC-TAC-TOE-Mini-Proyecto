@@ -1,0 +1,98 @@
+/* Estilos generales para los formularios de autenticación */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(180deg,#02002481 0%, rgba(3, 139, 207, 0.282) 29%, #02002481 100%);  padding: 1rem;;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 5% auto;
+    max-width: 500px;
+    position: relative;
+    z-index: 10;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.auth-form label {
+    font-weight: bold;
+    color: rgb(246, 247, 248);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+
+.auth-form input {
+    background-color: rgba(199, 234, 234, 0.57);
+    padding: 0.75rem;
+    border: 2px solid #cccccc61;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.auth-form button.btnJugar {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.error-message {
+    color: #de1008a8;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: rgba(253, 253, 253, 0);
+}
+
+.auth-switch {
+    margin-top: 1.5rem;
+    color:aliceblue;
+    font-size: 0.9rem;
+}
+
+.auth-switch a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes para el header en las páginas de autenticación */
+.auth-container header {
+    flex-direction: column;
+    padding: 1rem;
+    background: none; }
+
+ .auth-container .logo #logo {
+    width: 80px;
+}
+
+.auth-container h1{
+    font-size: 1.8rem;
+    margin: 0.5rem 0 0;
+    color: var(--light-text-color);
+}
+body {
+   background-image:url(img/FONDOINICIO2.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}

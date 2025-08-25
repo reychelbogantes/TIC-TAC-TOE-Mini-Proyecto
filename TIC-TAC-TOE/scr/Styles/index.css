@@ -1,0 +1,396 @@
+:root {
+    --primary-color: #0076b6;
+    --secondary-color: #00b8d4;
+    --accent-color: #FFC229;
+    --text-color: #333;
+    --light-text-color: white;
+    --bg-gradient-top: rgba(2, 0, 36, 0.83);
+    --bg-gradient-bottom: rgba(0, 212, 255, 0.16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.5;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 37%;
+    background: linear-gradient(180deg, var(--bg-gradient-top) 0%, rgba(3, 139, 207, 0.38) 29%, var(--bg-gradient-bottom) 100%);
+    color: var(--light-text-color);
+    position: relative; /* Para posicionar el botón de ajustes */
+}
+
+
+
+header h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 0;
+    text-align: left;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+        "controls board scoreboard";    
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.game-controls {
+    grid-area: controls;
+    padding: 20px;
+}
+
+.game-board {
+    grid-area: board;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.score-board {
+    grid-area: scoreboard;
+    padding: 20px;
+}
+
+.board {
+    position: relative;
+    width: clamp(200px, 50vmin, 500px);
+    height: clamp(200px, 50vmin, 500px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    aspect-ratio: 1 / 1;
+}
+
+.cell {
+    font-size: clamp(2rem, 10vmin, 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell.X, .cell.O {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.cell.X {
+    background-image: url('img/TomX.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cell.O {
+    background-image: url('img/JerryO.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.line {
+    position: absolute;
+    background: radial-gradient(circle, rgba(84, 75, 4, 1) 0%, rgba(186, 179, 50, 1) 50%, rgba(84, 75, 4, 1) 100%);
+    border-radius: 999px;
+    z-index: 1;
+}
+
+.vertical {
+    width: 8px;
+    height: 100%;
+    top: 0;
+}
+
+.v1 { left: 33.3%; }
+.v2 { left: 66.6%; }
+
+.horizontal {
+    height: 8px;
+    width: 100%;
+    left: 0;
+}
+
+.h1 { top: 33.3%; }
+.h2 { top: 66.6%; }
+
+.btnJugar {
+    appearance: none;
+    background-color: var(--light-text-color);
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    padding: 0.75rem 1.3rem;
+    transition: all .15s;
+    touch-action: manipulation;
+    margin-top: 10px;
+}
+
+.btnJugar:hover {
+    background-color: var(--accent-color);
+    box-shadow: #FF6314 0 -6px 8px inset;
+    transform: scale(1.05);
+}
+
+.btnJugar:active {
+    transform: scale(0.98);
+}
+
+#cpuOptions {
+    display: none;
+    margin-top: 1rem;
+}
+
+#scoreboardContainer {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(0, 118, 182, 0.68), rgba(0, 184, 212, 0.47));
+    color: var(--light-text-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.2s ease-in-out;
+}
+
+#scoreboardContainer:hover {
+    transform: scale(1.03);
+}
+
+#scoreboardContainer h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 5px;
+}
+
+#winnersList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#winnersList li {
+    margin: 8px 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#winnersList li:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+#resetScoreboard {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: var(--light-text-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#resetScoreboard:hover {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: rgba(10, 39, 55, 0.32);
+    color: rgb(255, 255, 255);
+    padding: 1rem;
+}
+
+/* --- RESPONSIVIDAD MÓVIL --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .settings-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+    main {
+        grid-template-areas:
+            "board"
+            "controls"
+            "scoreboard";
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .game-controls,
+    .score-board {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #logo {
+        width: 80px;
+    }
+
+    .board {
+        width: 80vw;
+        height: 80vw;
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+/* Estilos para el nuevo botón de configuraciones */
+.settings-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.settings-btn:hover {
+    transform: rotate(45deg);
+}
+
+/* Estilos para la ventana modal (popup) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.setting-item label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.setting-item input[type="range"] {
+    width: 60%;
+    cursor: pointer;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+}
